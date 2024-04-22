@@ -24,7 +24,7 @@ namespace csharp_biblioteca
         {
             Loans.Add(new Loan(user, document, dal, al));
         }
-        public string Search(int input, Biblioteca biblioteca)
+        public string SearchDocument(int input, Biblioteca biblioteca)
         {
             foreach (Document document in biblioteca.Documents)
             {
@@ -36,7 +36,7 @@ namespace csharp_biblioteca
             return "Nessun risultato";
 
         }
-        public string Search(string input, Biblioteca biblioteca)
+        public string SearchDocument(string input, Biblioteca biblioteca)
         {
             foreach (Document document in biblioteca.Documents)
             {
