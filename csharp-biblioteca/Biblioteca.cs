@@ -47,6 +47,7 @@ namespace csharp_biblioteca
             }
             return "Nessun risultato";
         }
+
     }
     public class User
     {
