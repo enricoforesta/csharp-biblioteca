@@ -24,6 +24,29 @@ namespace csharp_biblioteca
         {
             Loans.Add(new Loan(user, document, dal, al));
         }
+        public string Search(int input, Biblioteca biblioteca)
+        {
+            foreach (Document document in biblioteca.Documents)
+            {
+                if (document.Code == input)
+                {
+                    return $"Titolo: {document.Title}, Anno: {document.Year}, Settore: {document.Sector}, Posizione: {document.Position}, Autore: {document.Author}";
+                }
+            }
+            return "Nessun risultato";
+
+        }
+        public string Search(string input, Biblioteca biblioteca)
+        {
+            foreach (Document document in biblioteca.Documents)
+            {
+                if (document.Title == input)
+                {
+                    return $"Titolo: {document.Title}, Anno: {document.Year}, Settore: {document.Sector}, Posizione: {document.Position}, Autore: {document.Author}";
+                }
+            }
+            return "Nessun risultato";
+        }
     }
     public class User
     {
@@ -48,7 +71,6 @@ namespace csharp_biblioteca
             this._phone = phone;
             biblioteca.Users.Add(this);
         }
-
     }
     public class Document
     {
@@ -76,30 +98,6 @@ namespace csharp_biblioteca
             this._position = position;
             this._author = author;
             biblioteca.Documents.Add(this);
-        }
-
-        public string Search(int input, Biblioteca biblioteca)
-        {
-            foreach (Document document in biblioteca.Documents)
-            {
-                if (document.Code == input)
-                {
-                   return $"Titolo: {document.Title}, Anno: {document.Year}, Settore: {document.Sector}, Posizione: {document.Position}, Autore: {document.Author}";
-                }
-            }
-            return "Nessun risultato";
-
-        }
-        public string Search(string input, Biblioteca biblioteca)
-        {
-            foreach (Document document in biblioteca.Documents)
-            {
-                if (document.Title == input)
-                {
-                    return $"Titolo: {document.Title}, Anno: {document.Year}, Settore: {document.Sector}, Posizione: {document.Position}, Autore: {document.Author}";
-                }
-            }
-            return "Nessun risultato";
         }
     }
 
