@@ -9,20 +9,14 @@ namespace csharp_biblioteca
 {
     public class Biblioteca
     {
-        public List<User> Users { get; set; }
-        public List<Document> Documents { get; set; }
-        public List<Loan> Loans { get; set; }
+        public List<User> Users { get; set; } = new();
+        public List<Document> Documents { get; set; } = new();
+        public List<Loan> Loans { get; set; } = new(); 
 
-        public Biblioteca(List<User> users, List<Document> documents, List<Loan> loans)
-        {
-            this.Users = users;
-            this.Documents = documents;
-            this.Loans = loans;
-        }
 
-        public void PrendiInPrestito(User user, Document document, DateTime dal, DateTime al)
+        public void PrendiInPrestito(User user, Document document, DateTime dateStart, DateTime dateEnd)
         {
-            Loans.Add(new Loan(user, document, dal, al));
+            Loans.Add(new Loan(user, document, dateStart, dateEnd));
         }
         public string SearchDocument(int input, Biblioteca biblioteca)
         {
