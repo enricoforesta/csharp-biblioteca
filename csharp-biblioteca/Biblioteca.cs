@@ -24,7 +24,7 @@ namespace csharp_biblioteca
             {
                 if (document.Code == input)
                 {
-                    return $"Titolo: {document.Title}, Anno: {document.Year}, Settore: {document.Sector}, Posizione: {document.Position}, Autore: {document.Author}";
+                    return document.Code.ToString();
                 }
             }
             return "Nessun risultato";
@@ -36,7 +36,7 @@ namespace csharp_biblioteca
             {
                 if (document.Title == input)
                 {
-                    return $"Titolo: {document.Title}, Anno: {document.Year}, Settore: {document.Sector}, Posizione: {document.Position}, Autore: {document.Author}";
+                    return document.Code.ToString();
                 }
             }
             return "Nessun risultato";
