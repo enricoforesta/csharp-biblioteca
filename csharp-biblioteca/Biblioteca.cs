@@ -28,25 +28,25 @@ namespace csharp_biblioteca
             Loans.Add(new Loan(user, document, dateStart, dateEnd));
         }
 
-        public string SearchDocument(int input, Biblioteca biblioteca)
+        public string SearchDocument(int input)
         {
-            foreach (Document document in biblioteca.Documents)
+            foreach (Document document in Documents)
             {
                 if (document.Code == input)
                 {
-                    return document.Code.ToString();
+                    return document.Title;
                 }
             }
             return "Nessun risultato";
 
         }
-        public string SearchDocument(string input, Biblioteca biblioteca)
+        public string SearchDocument(string input)
         {
-            foreach (Document document in biblioteca.Documents)
+            foreach (Document document in Documents)
             {
                 if (document.Title == input)
                 {
-                    return document.Code.ToString();
+                    return document.Title;
                 }
             }
             return "Nessun risultato";
