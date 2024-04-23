@@ -11,13 +11,23 @@ namespace csharp_biblioteca
     {
         public List<User> Users { get; set; } = new();
         public List<Document> Documents { get; set; } = new();
-        public List<Loan> Loans { get; set; } = new(); 
+        public List<Loan> Loans { get; set; } = new();
 
+        public void AddUser(User user)
+        {
+            Users.Add(user);
+        }
+
+        public void AddDocument(Document document)
+        {
+            Documents.Add(document);
+        }
 
         public void PrendiInPrestito(User user, Document document, DateTime dateStart, DateTime dateEnd)
         {
             Loans.Add(new Loan(user, document, dateStart, dateEnd));
         }
+
         public string SearchDocument(int input, Biblioteca biblioteca)
         {
             foreach (Document document in biblioteca.Documents)
@@ -57,14 +67,13 @@ namespace csharp_biblioteca
         public string Password { get { return _password; } set { _password = value; } }
         public int Phone { get { return _phone; } set { _phone = value; } }
 
-        public User(string surname, string name, string email, string password, int phone, Biblioteca biblioteca)
+        public User(string surname, string name, string email, string password, int phone)
         {
             this._surname = surname;
             this._name = name;
             this._email = email;
             this._password = password;
             this._phone = phone;
-            biblioteca.Users.Add(this);
         }
     }
     public class Document
@@ -83,7 +92,7 @@ namespace csharp_biblioteca
         public string Position { get { return _position; } set { _position = value; } }
         public string Author { get { return _author; } set { _author = value; } }
 
-        public Document(int code, string title, int year, string sector, string position, string author, Biblioteca biblioteca)
+        public Document(int code, string title, int year, string sector, string position, string author)
 
         {
             this._code = code;
@@ -92,7 +101,6 @@ namespace csharp_biblioteca
             this._sector = sector;
             this._position = position;
             this._author = author;
-            biblioteca.Documents.Add(this);
         }
     }
 
@@ -117,8 +125,8 @@ namespace csharp_biblioteca
 
         public int NumberPage { get { return _numberPage; } set { _numberPage = value; } }
 
-        public Book(int code, string title, int year, string sector, string position, string author, int numberPage, Biblioteca biblioteca)
-            : base(code, title, year, sector, position, author, biblioteca)
+        public Book(int code, string title, int year, string sector, string position, string author, int numberPage)
+            : base(code, title, year, sector, position, author)
         {
             this._numberPage = numberPage;
         }
@@ -129,8 +137,8 @@ namespace csharp_biblioteca
 
         public int Duration { get { return _duration; } set { _duration = value; } }
 
-        public DVD(int code, string title, int year, string sector, string position, string author, int duration, Biblioteca biblioteca)
-            : base(code, title, year, sector, position, author, biblioteca)
+        public DVD(int code, string title, int year, string sector, string position, string author, int duration )
+            : base(code, title, year, sector, position, author)
         {
             this._duration = duration;
         }
